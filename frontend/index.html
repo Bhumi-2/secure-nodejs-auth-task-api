@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Primetrade.ai Backend Assignment – Frontend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="logo-circle">P</div>
+        <div>
+          <div class="product-name">Primetrade.ai</div>
+          <div class="product-subtitle">Backend Developer Assignment</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="pill pill-success">JWT + CRUD Demo</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <p class="subtitle">
+        Minimal dashboard to test authentication, role-based access and task CRUD APIs.
+      </p>
+
+      <div class="grid auth-grid">
+        <section class="card">
+          <h2>Register</h2>
+          <p class="section-hint">Create a user (or admin) account in the API.</p>
+          <form id="register-form" class="form">
+            <label>
+              <span>Name</span>
+              <input type="text" id="register-name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" id="register-email" required />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" id="register-password" required />
+            </label>
+            <label>
+              <span>Role</span>
+              <select id="register-role">
+                <option value="user" selected>User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
+            <button type="submit" class="btn primary full-width">Register</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Login</h2>
+          <p class="section-hint">Obtain a JWT and use it for protected routes.</p>
+          <form id="login-form" class="form">
+            <label>
+              <span>Email</span>
+              <input type="email" id="login-email" required />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" id="login-password" required />
+            </label>
+            <button type="submit" class="btn secondary full-width">Login</button>
+          </form>
+
+          <div class="token-box">
+            <div class="token-header">
+              <h3>Current Token</h3>
+              <span class="pill pill-muted">Stored in localStorage</span>
+            </div>
+            <pre id="token-display" class="token-pre">(not logged in)</pre>
+          </div>
+        </section>
+      </div>
+
+      <section class="card dashboard">
+        <div class="card-header">
+          <div>
+            <h2>Tasks Dashboard</h2>
+            <p class="section-hint">
+              Create, edit and delete tasks using the secured Task APIs.
+            </p>
+          </div>
+          <button id="refresh-tasks" class="btn ghost">
+            ⟳ Refresh Tasks
+          </button>
+        </div>
+
+        <form id="task-form" class="form form-inline">
+          <div class="form-inline-main">
+            <label>
+              <span>Title</span>
+              <input type="text" id="task-title" required />
+            </label>
+            <label>
+              <span>Description</span>
+              <input type="text" id="task-description" />
+            </label>
+          </div>
+          <div class="form-inline-actions">
+            <button type="submit" id="task-submit-btn" class="btn primary">
+              Create Task
+            </button>
+            <button
+              type="button"
+              id="task-cancel-edit"
+              class="btn ghost"
+              style="display:none;"
+            >
+              Cancel Edit
+            </button>
+          </div>
+        </form>
+
+        <div id="tasks-list" class="tasks-list"></div>
+      </section>
+
+      <section class="card log-card">
+        <div class="card-header">
+          <h2>API Activity</h2>
+          <p class="section-hint">Responses and errors from the backend APIs.</p>
+        </div>
+        <pre id="messages" class="log-pre"></pre>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Primetrade.ai · Backend assignment demo</span>
+      <span>Built with Node.js, JWT, MongoDB & Vanilla JS</span>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
