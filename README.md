@@ -191,4 +191,5 @@ Everything required in the assignment has been implemented.
 ---
 
 **Author:** Bhumika Khatwani
+
 **Project:** Primetrade.ai – Backend Developer Assignment  
