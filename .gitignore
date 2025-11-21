@@ -10,7 +10,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Mac system files
 .DS_Store
 
 # Temp files
